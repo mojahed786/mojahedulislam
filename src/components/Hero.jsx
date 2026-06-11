@@ -1,9 +1,7 @@
 import React from "react";
-
 const Hero = () => {
   return (
-     <section className="w-full min-h-screen bg-[#0f0f0f] text-white flex items-center">
-      <div className="max-w-[1200px] mx-auto px-6 sm:px-8 lg:px-12 xl:px-16 flex flex-col md:flex-row items-center justify-between gap-10 w-full">
+<section id="home" className="w-full min-h-screen bg-[#0f0f0f] text-white flex items-center">      <div className="max-w-[1200px] mx-auto px-6 sm:px-8 lg:px-12 xl:px-16 flex flex-col md:flex-row items-center justify-between gap-10 w-full">
 
         {/* Left Content */}
         <div className="flex-1">
