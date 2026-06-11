@@ -14,11 +14,46 @@ const Navbar = () => {
 
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
-    return () => { document.body.style.overflow = ""; };
+    return () => {
+      document.body.style.overflow = "";
+    };
   }, [open]);
 
   return (
     <>
+      {/* ── Scoped Styles ── */}
+      <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700&display=swap');
+
+        .desktop-nav {
+          display: flex !important;
+        }
+        .hamburger-btn {
+          display: none !important;
+        }
+        .mobile-drawer {
+          display: none !important;
+        }
+        .mobile-overlay {
+          display: none !important;
+        }
+
+        @media (max-width: 768px) {
+          .desktop-nav {
+            display: none !important;
+          }
+          .hamburger-btn {
+            display: flex !important;
+          }
+          .mobile-drawer {
+            display: block !important;
+          }
+          .mobile-overlay {
+            display: block !important;
+          }
+        }
+      `}</style>
+
       <nav
         style={{
           position: "fixed",
@@ -45,9 +80,10 @@ const Navbar = () => {
             justifyContent: "space-between",
           }}
         >
-          {/* ── Logo ── */}
+          {/* ── Logo (clickable home link) ── */}
           <a
-            href="#"
+            href="#home"
+            onClick={() => setOpen(false)}
             style={{
               fontSize: "1.25rem",
               fontWeight: 700,
@@ -57,13 +93,12 @@ const Navbar = () => {
               fontFamily: "'Syne', sans-serif",
             }}
           >
-            My<span style={{ color: "#7f77dd" }}>Portfolio</span>
+            <span style={{ color: "#7f77dd" }}>Portfolio</span>
           </a>
 
           {/* ── Desktop Links ── */}
           <ul
             style={{
-              display: "flex",
               alignItems: "center",
               gap: "2.5rem",
               listStyle: "none",
@@ -87,7 +122,9 @@ const Navbar = () => {
                     fontFamily: "'Syne', sans-serif",
                   }}
                   onMouseEnter={(e) => (e.target.style.color = "#7f77dd")}
-                  onMouseLeave={(e) => (e.target.style.color = "rgba(255,255,255,0.7)")}
+                  onMouseLeave={(e) =>
+                    (e.target.style.color = "rgba(255,255,255,0.7)")
+                  }
                 >
                   {l}
                 </a>
@@ -107,7 +144,8 @@ const Navbar = () => {
                   textTransform: "uppercase",
                   fontWeight: 600,
                   borderRadius: 6,
-                  transition: "background-color 0.2s ease, transform 0.15s ease",
+                  transition:
+                    "background-color 0.2s ease, transform 0.15s ease",
                   fontFamily: "'Syne', sans-serif",
                 }}
                 onMouseEnter={(e) => {
@@ -131,7 +169,6 @@ const Navbar = () => {
             aria-expanded={open}
             className="hamburger-btn"
             style={{
-              display: "none",
               flexDirection: "column",
               justifyContent: "center",
               alignItems: "center",
@@ -157,7 +194,8 @@ const Navbar = () => {
                 transform: open
                   ? "translateY(0) rotate(45deg)"
                   : "translateY(-7px) rotate(0deg)",
-                transition: "transform 0.35s cubic-bezier(0.23, 1, 0.32, 1)",
+                transition:
+                  "transform 0.35s cubic-bezier(0.23, 1, 0.32, 1)",
                 transformOrigin: "center",
               }}
             />
@@ -189,7 +227,8 @@ const Navbar = () => {
                 transform: open
                   ? "translateY(0) rotate(-45deg)"
                   : "translateY(7px) rotate(0deg)",
-                transition: "transform 0.35s cubic-bezier(0.23, 1, 0.32, 1)",
+                transition:
+                  "transform 0.35s cubic-bezier(0.23, 1, 0.32, 1)",
                 transformOrigin: "center",
               }}
             />
@@ -202,7 +241,9 @@ const Navbar = () => {
             overflow: "hidden",
             maxHeight: open ? 400 : 0,
             transition: "max-height 0.4s cubic-bezier(0.23, 1, 0.32, 1)",
-            borderTop: open ? "1px solid rgba(127,119,221,0.15)" : "1px solid transparent",
+            borderTop: open
+              ? "1px solid rgba(127,119,221,0.15)"
+              : "1px solid transparent",
           }}
           className="mobile-drawer"
         >
@@ -267,8 +308,12 @@ const Navbar = () => {
                   fontFamily: "'Syne', sans-serif",
                   transition: "background-color 0.2s ease",
                 }}
-                onMouseEnter={(e) => (e.target.style.backgroundColor = "#5d55c9")}
-                onMouseLeave={(e) => (e.target.style.backgroundColor = "#7f77dd")}
+                onMouseEnter={(e) =>
+                  (e.target.style.backgroundColor = "#5d55c9")
+                }
+                onMouseLeave={(e) =>
+                  (e.target.style.backgroundColor = "#7f77dd")
+                }
               >
                 Contact
               </a>
@@ -292,9 +337,6 @@ const Navbar = () => {
         }}
         className="mobile-overlay"
       />
-
-      {/* ── Scoped Styles ── */}
-    
     </>
   );
 };
