@@ -1,4 +1,5 @@
 import React from "react";
+import profle from '../assets/hero.png'
 const Hero = () => {
   return (
 <section id="home" className="w-full min-h-screen bg-[#0f0f0f] text-white flex items-center">      <div className="max-w-[1200px] mx-auto px-6 sm:px-8 lg:px-12 xl:px-16 flex flex-col md:flex-row items-center justify-between gap-10 w-full">
@@ -46,7 +47,7 @@ const Hero = () => {
       <div className="flex-1 flex justify-center items-center">
   <div className="w-[250px] sm:w-[300px] md:w-[330px] h-[250px] sm:h-[300px] md:h-[330px] rounded-full overflow-hidden border-2 border-sky-400 shadow-[0_0_25px_6px_rgba(56,189,248,0.6)]">
     <img
-    src="src/assets/hero.png"
+    src={profle}
     alt="Hero Image"
     className="w-[112%] h-[113%] object-contain"
   />
