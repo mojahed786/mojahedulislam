@@ -11,8 +11,8 @@ const Projects = () => {
       desc: "Random quote generator using React API handling.",
     },
     {
-      title: "Todo App",
-      desc: "Simple CRUD app using React state management.",
+      title: "Counter App",
+      desc: "Simple Counter app using React state management.",
     },
   ];
 
